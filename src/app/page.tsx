@@ -46,7 +46,7 @@ export default function Home() {
         "    sys.stdout, sys.stderr = _forsure_old_out, _forsure_old_err",
         "_forsure_text = _forsure_out.getvalue() + _forsure_err.getvalue()",
         "_forsure_text"
-      ].join("\\n");
+      ].join("\n");
       const result=await py.runPythonAsync(wrapped);
       setOutput(result ? String(result) : "Program finished successfully.");
       if(code.includes("print(")&&code.includes("Pick up the apple"))setStage("computer");
