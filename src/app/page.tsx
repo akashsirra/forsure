@@ -34,8 +34,21 @@ export default function Home() {
     try{
       const mod=await import(/* webpackIgnore: true */ "https://cdn.jsdelivr.net/pyodide/v0.27.2/full/pyodide.mjs");
       const py=await mod.loadPyodide({indexURL:"https://cdn.jsdelivr.net/pyodide/v0.27.2/full/"});
-      const result=await py.runPythonAsync(code);
-      setOutput(result===undefined?"Program finished successfully.":String(result));
+      const wrapped = [
+        "import io, sys",
+        "_forsure_out = io.StringIO()",
+        "_forsure_err = io.StringIO()",
+        "_forsure_old_out, _forsure_old_err = sys.stdout, sys.stderr",
+        "sys.stdout, sys.stderr = _forsure_out, _forsure_err",
+        "try:",
+        "    exec(" + JSON.stringify(code) + ", {\"__name__\": \"__main__\"})",
+        "finally:",
+        "    sys.stdout, sys.stderr = _forsure_old_out, _forsure_old_err",
+        "_forsure_text = _forsure_out.getvalue() + _forsure_err.getvalue()",
+        "_forsure_text"
+      ].join("\\n");
+      const result=await py.runPythonAsync(wrapped);
+      setOutput(result ? String(result) : "Program finished successfully.");
       if(code.includes("print(")&&code.includes("Pick up the apple"))setStage("computer");
     }catch(e){setPyError(e instanceof Error?e.message:String(e))}finally{setRunning(false)}
   }
@@ -66,7 +79,7 @@ export default function Home() {
 
         <section className="playground"><div className="playground-top"><div><div className="play-kicker"><Code2 size={15}/> BUILD THE IDEA</div><h2>Now tell the computer.</h2><p>Turn the instruction you just understood into Python.</p></div><span className={"python-status "+(pyReady?"ready":"")}>{pyReady?"● Python ready":"○ Loading Python"}</span></div>
           <div className="editor"><div className="editor-bar"><span>lesson_01.py</span><button onClick={runPython} disabled={running}>{running?<><Loader2 className="spin" size={15}/> Running</>:<><Play size={15}/> Run</>}</button></div><textarea value={code} onChange={e=>setCode(e.target.value)} spellCheck={false} aria-label="Python code editor"/><div className="output"><span>OUTPUT</span>{output?<pre>{output}</pre>:pyError?<pre className="error">{pyError}</pre>:<pre>Run your code to see what the computer does.</pre>}</div></div>
-          <div className="coach-note"><span>F</span><div><b>Forsure coach</b><p>{output?"Nice. You gave the computer a concrete instruction. Next, we'll learn what <code>print()</code> actually does.":"Try running the starter code. Then change the words inside print() and run it again. Watch what changes."}</p></div></div>
+          <div className="coach-note"><span>F</span><div><b>Forsure coach</b><p>{output ? <>Nice. You gave the computer a concrete instruction. Next, we&apos;ll learn what <code>print()</code> actually does.</> : <>Try running the starter code. Then change the words inside <code>print()</code> and run it again. Watch what changes.</>}</p></div></div>
         </section>
       </div>
     </section>
