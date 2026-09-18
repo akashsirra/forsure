@@ -1,0 +1,59 @@
+{
+  "course": {
+    "id": "python-zero-to-engineering",
+    "title": "Python: Zero to Software Engineering",
+    "language": "python",
+    "version": "0.1.0"
+  },
+  "sections": [
+    {"id":"foundations","title":"Foundations","lessons":[
+      {"id":"programming","title":"What is programming?"},
+      {"id":"computer-execution","title":"How computers execute code"},
+      {"id":"python-setup","title":"Python setup"},
+      {"id":"print","title":"print()"},
+      {"id":"values","title":"Values"},
+      {"id":"variables","title":"Variables"},
+      {"id":"numbers","title":"Numbers"},
+      {"id":"strings","title":"Strings"},
+      {"id":"booleans","title":"Booleans"},
+      {"id":"type-conversion","title":"Type conversion"},
+      {"id":"input-output","title":"Input and output"}
+    ]},
+    {"id":"control-flow","title":"Control Flow","lessons":[
+      {"id":"comparisons","title":"Comparisons"},{"id":"conditionals","title":"if / elif / else"},{"id":"logical-operators","title":"Logical operators"},{"id":"while-loops","title":"while"},{"id":"for-loops","title":"for"},{"id":"range","title":"range()"},{"id":"nested-loops","title":"Nested loops"},{"id":"break-continue","title":"break / continue"}
+    ]},
+    {"id":"data","title":"Data","lessons":[
+      {"id":"lists","title":"Lists"},{"id":"tuples","title":"Tuples"},{"id":"sets","title":"Sets"},{"id":"dictionaries","title":"Dictionaries"},{"id":"indexing","title":"Indexing"},{"id":"slicing","title":"Slicing"},{"id":"mutability","title":"Mutability"},{"id":"comprehensions","title":"Comprehensions"}
+    ]},
+    {"id":"functions","title":"Functions","lessons":[
+      {"id":"defining-functions","title":"Defining functions"},{"id":"parameters","title":"Parameters"},{"id":"return-values","title":"Return values"},{"id":"scope","title":"Scope"},{"id":"default-arguments","title":"Default arguments"},{"id":"args-kwargs","title":"*args / **kwargs"},{"id":"lambda","title":"Lambda functions"},{"id":"recursion","title":"Recursion"}
+    ]},
+    {"id":"debugging","title":"Errors & Debugging","lessons":[
+      {"id":"syntax-errors","title":"Syntax errors"},{"id":"runtime-errors","title":"Runtime errors"},{"id":"exceptions","title":"Exceptions"},{"id":"try-except","title":"try / except"},{"id":"debugging-methodology","title":"Debugging methodology"},{"id":"tracebacks","title":"Reading tracebacks"},{"id":"defensive-code","title":"Defensive programming"}
+    ]},
+    {"id":"files-packages-apis","title":"Files, Packages & APIs","lessons":[
+      {"id":"files","title":"Files"},{"id":"json","title":"JSON"},{"id":"csv","title":"CSV"},{"id":"modules","title":"Modules"},{"id":"packages","title":"Packages"},{"id":"pip","title":"pip"},{"id":"virtual-environments","title":"Virtual environments"},{"id":"apis","title":"APIs"}
+    ]},
+    {"id":"oop","title":"Object-Oriented Programming","lessons":[
+      {"id":"classes","title":"Classes"},{"id":"objects","title":"Objects"},{"id":"attributes","title":"Attributes"},{"id":"methods","title":"Methods"},{"id":"constructors","title":"Constructors"},{"id":"inheritance","title":"Inheritance"},{"id":"polymorphism","title":"Polymorphism"},{"id":"encapsulation","title":"Encapsulation"},{"id":"composition","title":"Composition"}
+    ]},
+    {"id":"real-python","title":"Real Python","lessons":[
+      {"id":"iterators","title":"Iterators"},{"id":"generators","title":"Generators"},{"id":"decorators","title":"Decorators"},{"id":"context-managers","title":"Context managers"},{"id":"type-hints","title":"Type hints"},{"id":"dataclasses","title":"Dataclasses"},{"id":"testing","title":"Testing"},{"id":"pytest","title":"pytest"},{"id":"logging","title":"Logging"},{"id":"environment-variables","title":"Environment variables"}
+    ]},
+    {"id":"practical-development","title":"Practical Development","lessons":[
+      {"id":"http","title":"HTTP"},{"id":"rest-apis","title":"REST APIs"},{"id":"requests","title":"Requests"},{"id":"sql-python","title":"SQL + Python"},{"id":"sqlite","title":"SQLite"},{"id":"git-github","title":"Git/GitHub"},{"id":"cli","title":"CLI applications"},{"id":"automation","title":"Automation"},{"id":"async-python","title":"Async Python"},{"id":"project-architecture","title":"Project architecture"},{"id":"capstone","title":"Capstone application"}
+    ]}
+  ],
+  "projects": [
+    {"id":"calculator","title":"Calculator","after":["variables","conditionals","functions"]},
+    {"id":"number-guessing","title":"Number Guessing Game","after":["conditionals","while-loops","input-output"]},
+    {"id":"quiz","title":"Quiz Game","after":["lists","dictionaries","for-loops","functions"]},
+    {"id":"todo-cli","title":"To-do CLI","after":["lists","files","functions"]},
+    {"id":"expense-tracker","title":"Expense Tracker","after":["dictionaries","files","exceptions"]},
+    {"id":"file-organizer","title":"File Organizer","after":["files","modules","exceptions"]},
+    {"id":"api-app","title":"API Application","after":["apis","json","requests"]},
+    {"id":"web-scraper","title":"Web Scraper","after":["requests","files","exceptions"]},
+    {"id":"database-app","title":"Database Application","after":["sqlite","sql-python","classes"]},
+    {"id":"python-capstone","title":"Full Python Application","after":["project-architecture","testing","git-github"]}
+  ]
+}
