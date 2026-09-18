@@ -12,6 +12,10 @@ export const firstLesson = {
   challenge: {
     prompt: "Your robot has an apple in front of it. Which instruction should come first?",
     options: ["Eat the apple", "Pick up the apple", "Build a website"],
-    answer: "Pick up the apple"
+    answer: "Pick up the apple",
+    misconceptions: {
+      "Eat the apple": "You jumped to the final goal. A computer needs the concrete step that makes the goal possible first.",
+      "Build a website": "That instruction does not belong to the robot's current goal. Stay focused on the small step needed right now."
+    }
   }
 } as const;
